@@ -29,7 +29,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: 40%; 
+  width: 50%; 
   margin: 14px;
 }
 
@@ -61,7 +61,7 @@ body {
 
 /* Style for the interactive part (right column) */
 .interactive-content {
-  width: 60%; 
+  width: 50%; 
   height: 98%;
   padding: 10px;
   background-color: #d9d2b6ed; 
