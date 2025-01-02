@@ -1,6 +1,6 @@
 /* styles/styles.css */
 
-/* Основной стиль для страницы */
+/* Basic style for the page */
 body {
   font-family: Arial, sans-serif;
   background-color: #111;
@@ -8,33 +8,33 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Используем flexbox с вертикальным расположением */
-  height: 100vh; /* Высота на весь экран */
-  background-image: url('foto/Afon.jpg'); /* Path to your image */
+  flex-direction: column; 
+  height: 100vh; 
+  background-image: url('foto/Afon.jpg'); 
   background-size: cover; /* This will cause the image to cover the entire screen */
   background-position: center; /* center the image */
   background-repeat: no-repeat; /* So that the image is not repeated */
 }
 
-/* Контейнер для двух частей страницы */
+/* Container for two parts of the page */
 .container {
   display: flex;
-  flex: 1; /* Этот блок растягивается на всю оставшуюся высоту */
+  flex: 1; 
   width: 100%;
 }
 
-/* Стиль для консоли (левая колонка) */
+/* Style for console (left column) */
 .console {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: 40%; /* Левая колонка занимает 50% экрана */
+  width: 40%; 
   margin: 14px;
 }
 
 .console-output {
-  flex: 0 1 70%; /* Заполняет 50% высоты */
+  flex: 0 1 70%; 
   background-color: #000;
   border: 1px solid #00ff00;
   border-bottom: none;
@@ -55,16 +55,16 @@ body {
   font-family: "Courier New", Courier, monospace;
   caret-color: #00ff00;
   outline: none;
-  font-size: 16px; /* Устанавливаем размер шрифта */
+  font-size: 16px; 
   display: flex;
 }
 
-/* Стиль для интерактивной части (правая колонка) */
+/* Style for the interactive part (right column) */
 .interactive-content {
-  width: 60%; /* Правая колонка занимает оставшуюся половину */
+  width: 60%; 
   height: 98%;
   padding: 10px;
-  background-color: #d9d2b6ed; /*  фон */
+  background-color: #d9d2b6ed; 
   /*background-image: url('foto/3028.jpg'); /* Path to your image */
   /*background-size: cover; /* This will cause the image to cover the entire screen */
   /*background-position: center; /* center the image */
@@ -74,13 +74,13 @@ body {
   align-items: center;
   font-size: 18px;
   flex-direction: column;
-  position: relative; /* Для обеспечения правильного позиционирования внутри */
-  overflow: hidden; /* Чтобы содержимое не выходило за пределы */
+  position: relative; 
+  overflow: hidden; 
 
 }
 .pdf-section {
-  width: 100%; /* Ширина PDF-блока */
-  height: 100%; /* Высота растягивается на весь контейнер */
+  width: 100%; /* PDF block width */
+  height: 100%; /* Height stretches to cover entire container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,7 +90,7 @@ body {
   display: none;
 }
 
-/* Стили для секции с доступными командами */
+/* Styles for the section with available commands */
 .help-section {
   width: 95%;
   background-color: #222222d5;
@@ -98,7 +98,7 @@ body {
   border-top: 1px solid #00ff00;
   color: #fff;
   text-align: left;
-  margin-top: auto; /* Чтобы блок был прижат к низу */
+  margin-top: auto; 
 }
 
 .help-section h3 {
@@ -107,32 +107,32 @@ body {
 
 .help-section ul {
   padding-left: 10px;
-  column-count: 2; /* Разделить на два столбца */
-  column-gap: 60px; /* Отступ между столбцами */
+  column-count: 2; /* Split into two columns */
+  column-gap: 60px; /* Indentation between columns */
 }
 .command-link {
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #00ff00; /* Зеленый цвет для ссылок */
-  font-weight: bold; /* Жирный текст */
-  transition: all 0.3s ease; /* Плавный переход для изменений */
-  animation: flicker 0.1s infinite; /* Применение анимации мерцания */
+  text-decoration: none; 
+  color: #00ff00; 
+  font-weight: bold; 
+  transition: all 0.3s ease; 
+  animation: flicker 0.1s infinite; 
 }
-/* Эффект мерцания для команд */
+/* Flickering effect for commands */
 @keyframes flicker {
   0% {
-    color: #00ff00; /* Начальный цвет текста */
+    color: #00ff00; 
   }
   50% {
-    color: #ffffff; /* Половина цикла - weit */
+    color: #ffffff; 
   }
   100% {
-    color: #00ff00; /* Заключительный цвет текста */
+    color: #00ff00; 
   }
 }
 
 .command-link:hover {
-  color: #ff4500; /* Оранжевый цвет при наведении */
-  font-size: 18px; /* Увеличение размера при наведении */
+  color: #ff4500; 
+  font-size: 18px; 
 }
 
 .help-section li {
@@ -141,14 +141,14 @@ body {
 
 
 
-/* Контейнер для кнопки */
+/* Container for the button */
 .menu-container {
-  position: relative; /* Установить относительное позиционирование для размещения меню рядом с кнопкой */
+  position: relative; 
   display: inline-block;
   margin: 3px;
 }
 
-/* Кнопка */
+/* button */
 .menu-button {
   background-color: #333333a4;
   color: white;
@@ -166,10 +166,10 @@ body {
   transform: scale(1.1);
 }
 
-/* Меню */
+/* Menu */
 .menu {
-  position: absolute; /* Абсолютное позиционирование относительно контейнера */
-  top: 0%; /* Расположить меню сразу под кнопкой */
+  position: absolute; 
+  top: 0%; 
   left: 20%;
   background-color: #1e1d1d;
   color: rgb(253, 253, 253);
@@ -180,12 +180,12 @@ body {
   z-index: 1000;
 }
 
-/* Скрытое меню */
+/* hidden Menu */
 .menu.hidden {
   display: none;
 }
 
-/* Стили для списка меню */
+/* Styles for the menu list */
 .menu ul {
   display: flex;
   list-style: none;
@@ -194,15 +194,15 @@ body {
 }
 
 .menu ul li {
-  margin: 0 10px; /* Отступы между иконками */
+  margin: 0 10px; 
   display: flex;
-  align-items: center; /* Центрируем иконки и текст */
+  align-items: center; 
 }
 
-/* Иконка для ссылок в меню */
+/* Icon for links in menu */
 .menu ul li i {
-  margin-right: 5px; /* Отступ между иконкой и текстом */
-  font-size: 20px; /* Размер иконки */
+  margin-right: 5px; 
+  font-size: 20px; 
 }
 
 .menu ul li a {
@@ -215,15 +215,15 @@ body {
   text-decoration: underline;
 }
 
-/* Футер */
+/* Footer */
 footer {
   text-align: center;
   color: #ffd500;
   background-color: #111;
   padding: 10px;
-  margin-top: auto; /* Отталкивает футер вниз */
+  margin-top: auto; /* Pushes the footer down */
 }
-/* Адаптивность для средних экранов (до 768px) */
+/* Adaptive for medium screens (up to 768px) */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -231,7 +231,7 @@ footer {
   }
 
   .console {
-    width: 100%; /* Увеличиваем ширину консоли для мобильных */
+    width: 100%; /* Increase console width for mobile */
   }
 
   .interactive-content {
@@ -247,13 +247,13 @@ footer {
   }
 
   iframe {
-    width: auto; /* Занимает всю ширину родительского контейнера */
-    height: auto; /* Занимает всю высоту родительского контейнера */
-    border: none; /* Убирает рамки */
+    width: auto; 
+    height: auto; 
+    border: none; 
   }
 }
 
-/* Адаптивность для маленьких экранов (до 480px) */
+/* Adaptability for small screens (up to 480px) */
 @media (max-width: 480px) {
   body {
     font-size: 14px;
