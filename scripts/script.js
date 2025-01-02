@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const outputElement = document.getElementById("output");
   const inputElement = document.getElementById("input");
   const interactiveContent = document.querySelector(".interactive-content");
-  // Добавляем переменную для отслеживания текущего состояния интерактивного контента
-  let isInteractiveContentEnabled = true;
 
   const commands = {
     "about": `<p>Hello, I'm Maximus. I'm a full-stack developer and designer.
@@ -33,16 +31,16 @@ document.addEventListener("DOMContentLoaded", function() {
     "help": () => showHelp(),
     "time": () => showCurrentTime(),
     "enable": () => {
-      interactiveContent.classList.remove("hidden"); // Убрать класс hidden
-      isInteractiveContentEnabled = true; // Устанавливаем флаг в true
+      interactiveContent.classList.remove("hidden"); // Remove class hidden
+      isInteractiveContentEnabled = true; // Set the flag to true
       printToConsole("Interactive content enabled.");
-      updateSwitchButton(); // Обновляем кнопку
+      updateSwitchButton(); // Update the button
     },
     "disable": () => {
-      interactiveContent.classList.add("hidden"); // Добавить класс hidden
-      isInteractiveContentEnabled = false; // Устанавливаем флаг в false
+      interactiveContent.classList.add("hidden"); // Add class hidden
+      isInteractiveContentEnabled = false; // Set the flag to false
       printToConsole("Interactive content disabled.");
-      updateSwitchButton(); // Обновляем кнопку
+      updateSwitchButton(); // Update the button
     }
   };
   
@@ -178,25 +176,25 @@ document.addEventListener("DOMContentLoaded", function() {
         break;
     }
   }
-  // Обработчик кликов по ссылкам в меню
+  // Handler for clicks on links in the menu
   document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
       const command = this.getAttribute("data-command");
       updateInteractiveContent(command);
-      menu.classList.remove("show"); // Закрыть меню после клика
+      menu.classList.remove("show"); // Close menu after click
     });
   });
 
-  // Обработчик клика по кнопке меню
+  // Menu button click handler
   const menuButton = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
 
   menuButton.addEventListener("click", function () {
-    menu.classList.toggle("show"); // Переключаем отображение меню
+    menu.classList.toggle("show"); // Toggle the menu display
   });
 
-  // Закрыть меню при клике в любое другое место
+  // Close the menu when clicking anywhere else
   document.addEventListener("click", function (event) {
     if (!menu.contains(event.target) && event.target !== menuButton) {
       menu.classList.remove("show");
