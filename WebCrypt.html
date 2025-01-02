@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Encryption</title>
+    <script src="crypto-js.js"></script>
+    <link rel="stylesheet" href="/style/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>WebCrypt 2025</h2>
+        <div class="form-section">
+            <h3>Encrypt a File</h3>
+            <form id="encryptForm">
+                <label for="fileInput">Select File:</label>
+                <input type="file" id="fileInput" required>
+                <label for="passwordInput">Enter Password:</label>
+                <input type="password" id="passwordInput" required>
+                <button type="submit">Encrypt</button>
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h3>Decrypt a File</h3>
+            <form id="decryptForm">
+                <label for="decryptFileInput">Select Encrypted File:</label>
+                <input type="file" id="decryptFileInput" required>
+                <label for="decryptPasswordInput">Enter Password:</label>
+                <input type="password" id="decryptPasswordInput" required>
+                <button type="submit">Decrypt</button>
+            </form>
+        </div>
+
+        <div id="downloadLink"></div>
+        <div class="errorMessage" id="errorMessage"></div>
+        <div class="successMessage" id="successMessage"></div>
+    </div>
+
+    <!-- Modal window for downloading indicator -->
+    <div id="loadingModal" class="loadingModal">
+        <div class="loadingContent">
+            <h3>Encrypting your file...</h3>
+            <div class="spinner"></div> <!-- download indicator -->
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            setTimeout(() => {
+                document.body.classList.add("loaded");
+            }, 5000); 
+        });
+    </script>    
+
+    <script>
+        // Convert a file to Base64 string
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    resolve(reader.result.split(',')[1]); // Return Base64 encoded string without the data URL prefix
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Encrypt the file
+        document.getElementById('encryptForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const fileInput = document.getElementById('fileInput');
+            const passwordInput = document.getElementById('passwordInput');
+            const file = fileInput.files[0];
+            const password = passwordInput.value;
+
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const downloadLink = document.getElementById('downloadLink');
+
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            downloadLink.innerHTML = '';
+
+            if (!file || !password) {
+                errorMessage.textContent = 'Please select a file and enter a password.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            loadingModal.style.display = 'flex';
+
+            try {
+                // Convert file to Base64 string
+                const fileBase64 = await fileToBase64(file);
+
+                // Encrypt the Base64 string using AES
+                const encrypted = CryptoJS.AES.encrypt(fileBase64, password).toString();
+
+                // Create a Blob with the encrypted content and trigger download
+                const blob = new Blob([encrypted], { type: 'application/octet-stream' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = file.name + '.enc'; // Save as .enc file
+                link.click();
+
+                successMessage.textContent = 'File encrypted successfully! Downloading...';
+                successMessage.style.display = 'block';
+                // Hide the success message after 4 seconds
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 9000); // 9000 ms = 9 seconds
+
+            } catch (error) {
+                errorMessage.textContent = 'Error during encryption. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                // Hide the modal window after completing encryption
+                loadingModal.style.display = 'none';
+            }
+        });
+
+        // Decrypt the file
+        document.getElementById('decryptForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const decryptFileInput = document.getElementById('decryptFileInput');
+            const decryptPasswordInput = document.getElementById('decryptPasswordInput');
+            const file = decryptFileInput.files[0];
+            const password = decryptPasswordInput.value;
+
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const downloadLink = document.getElementById('downloadLink');
+
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+            downloadLink.innerHTML = '';
+
+            if (!file || !password) {
+                errorMessage.textContent = 'Please select an encrypted file and enter a password.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Read encrypted file content as text (Base64 string)
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const encryptedBase64 = e.target.result;
+
+                    // Decrypt the Base64 string using AES
+                    const decryptedBytes = CryptoJS.AES.decrypt(encryptedBase64, password);
+                    const decryptedData = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+                    // Check if decryption failed
+                    if (!decryptedData || decryptedData === "") {
+                        errorMessage.textContent = 'Wrong password or corrupted file!';
+                        errorMessage.classList.remove('hidden');
+                        return;
+                    }
+
+                    // Convert decrypted data (Base64 string) back to binary
+                    const byteCharacters = atob(decryptedData);  // Decode Base64 back to binary
+                    const byteArrays = [];
+
+                    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+                        const slice = byteCharacters.slice(offset, offset + 512);
+                        const byteNumbers = new Array(slice.length);
+                        for (let i = 0; i < slice.length; i++) {
+                            byteNumbers[i] = slice.charCodeAt(i);
+                        }
+                        byteArrays.push(new Uint8Array(byteNumbers));
+                    }
+
+                    const blob = new Blob(byteArrays, { type: 'application/octet-stream' });
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = file.name.replace('.enc', ''); // Remove .enc extension
+                    link.click();
+
+                    successMessage.textContent = 'File decrypted successfully! Downloading...';
+                    successMessage.classList.remove('hidden');
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000); // 5000 ms = 5 seconds
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                };
+
+                reader.onerror = function() {
+                    errorMessage.textContent = 'Error reading the file!';
+                    errorMessage.classList.remove('hidden');
+                };
+
+                reader.readAsText(file); // Read file as text (Base64 encoded string)
+            } catch (error) {
+                errorMessage.textContent = 'Error decrypting the file!';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+    
+    </script>
+
+    <footer>
+        <p>&copy; 2024 All rights reserved. "SaraffonoM"</p>
+    </footer>
+
+</body>
+</html>
