@@ -10,10 +10,10 @@
   <div class="container">
     <div class="console">
       <div class="console-output" id="output">
-        <!-- Здесь будет вывод команд -->
+        <!-- The output of the commands will go here -->
       </div>
       <input type="text" class="console-input" id="input" placeholder="Type a command...">
-          <!-- Секция с доступными командами -->
+          <!-- Section with available commands -->
           <div id="help" class="help-section">
             <h3>Available Commands:</h3>
             <ul>
@@ -32,22 +32,22 @@
             </ul>
           </div>
 
-          <!-- Кнопка меню и меню -->
+          <!-- Menu button and menu -->
           <div class="menu-container">
             <button id="menu-toggle" class="menu-button">
-              <span class="menu-icon">&#9776;</span> <!-- Иконка треугольника -->
+              <span class="menu-icon">&#9776;</span> 
             </button>
             <div id="menu" class="menu hidden">
               <ul>
-                <li><a href="#" data-command="switch"><i class="fa fa-home"></i> Home</a></li> <!-- Иконка для Home -->
-                <li><a href="#" data-command="about"><i class="fa fa-user"></i> About</a></li> <!-- Иконка для About -->
-                <li><a href="#" data-command="projects"><i class="fa fa-cogs"></i> Projects</a></li> <!-- Иконка для Projects -->
-                <li><a href="#" data-command="contact"><i class="fa fa-envelope"></i> Contact</a></li> <!-- Иконка для Contact -->
+                <li><a href="#" data-command="switch"><i class="fa fa-home"></i> Home</a></li> 
+                <li><a href="#" data-command="about"><i class="fa fa-user"></i> About</a></li> 
+                <li><a href="#" data-command="projects"><i class="fa fa-cogs"></i> Projects</a></li> 
+                <li><a href="#" data-command="contact"><i class="fa fa-envelope"></i> Contact</a></li> 
               </ul>
             </div>
           </div>
 
-          <!-- Подключаем Font Awesome -->
+          <!-- Connecting Font Awesome -->
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
@@ -58,7 +58,7 @@
 
                 // Обработчик для кнопки меню
                 menuToggleButton.addEventListener("click", () => {
-                  menu.classList.toggle("hidden"); // Показывать/скрывать меню
+                  menu.classList.toggle("hidden"); // Show/hide menu
                 });
               });
             </script>
@@ -71,7 +71,7 @@
 
     <div class="interactive-content">
       <h2>Welcome to the Interactive Section</h2>
-      <!-- Добавьте контент для правой части сайта, например, видео, фото, тексты -->
+      
       <div class="video-section">
         <iframe width="auto" height="auto" src="https://www.youtube.com/embed/w-7xcpsuvpk"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
