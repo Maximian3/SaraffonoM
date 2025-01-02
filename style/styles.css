@@ -237,9 +237,9 @@ footer {
 
 body {
     opacity: 0; /* hide body site */
-    transition: opacity 2s ease-in-out; /* Плавный переход */
+    transition: opacity 2s ease-in-out;
 }
 
 body.loaded {
-    opacity: 1; /* Показываем тело сайта */
+    opacity: 1; 
 }
