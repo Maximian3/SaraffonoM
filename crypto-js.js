@@ -1,3 +1,10 @@
+/*!
+ * CryptoJS v3.1.9-1
+ * Copyright (c) 2009-2013 Jeff Mott. All rights reserved.
+ * Copyright (c) 2013-2016 Evan Vosberg
+ * Licensed under the MIT License.
+ * https://opensource.org/licenses/MIT
+*/
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
