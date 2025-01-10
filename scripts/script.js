@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     Resume and career — a section to display career achievements and professional growth.
 
     Personal branding — building an online presence to attract new clients and career opportunities.`,
-    "projects": `\n1. Project <a href="WebCrypt.html">WebCrypt</a> .\n2. Project  "OROS".\n3. New project : a new project is planned in 2025.`,
+    "projects": `\n1. Project <a href="https://maximian3.github.io/WebCrypt-2025/index.html">WebCrypt</a> .\n2. Project  "OROS".\n3. New project : a new project is planned in 2025.`,
     "contact": `You can reach me at saraf@tutanota.de`,
     "profile": `This is my profile. Details coming soon...`,
     "skills": `Skills: JavaScript, HTML/CSS, React, Node.js, Python.`,
