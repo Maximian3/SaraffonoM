@@ -22,9 +22,6 @@ html, body {
     
 }
 
-body.loaded {
-  opacity: 1; /* body on */
-}
 
 .content {
     flex-grow: 1; 
