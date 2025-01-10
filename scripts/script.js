@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
       case "about":
         interactiveContent.innerHTML = `
         <div style="width: 100%; height: 130vh; display: flex; justify-content: center; align-items: center;">
-          <iframe src="/pdf/about/about.pdf" width="100%" height="100%" style="border: none;"></iframe>
+          <iframe src="/pdf/about/About.pdf" width="100%" height="100%" style="border: none;"></iframe>
         </div>`;
       break;
 
