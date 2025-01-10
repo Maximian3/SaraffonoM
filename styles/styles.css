@@ -137,9 +137,8 @@ body.loaded {
 }
 
 .console-input {
-  height: auto;
-  padding: 8px;
-  font-size: 12px;
+  height: 96.6%;
+  border-radius: 0; 
 }
   
 .console-output {
@@ -258,7 +257,7 @@ footer {
     box-sizing: border-box;
   }
   .console-input {
-  width: auto;
+  height: 96.6%;
   border-radius: 0;  
   }
     
