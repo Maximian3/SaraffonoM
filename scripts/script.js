@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
       case "projects":
         interactiveContent.innerHTML = `
         <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;">
-          <iframe src="/pdf/project/Projects2.pdf" width="100%" height="100%" style="border: none;"></iframe>
+          <iframe src="/pdf/project/Projects.pdf" width="100%" height="100%" style="border: none;"></iframe>
         </div>`;
         break;
 
