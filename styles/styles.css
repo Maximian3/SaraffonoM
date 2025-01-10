@@ -68,7 +68,7 @@ body.loaded {
 /* Style for the interactive part (right column) */
 .interactive-content {
   width: 50%; 
-  height: 98%;
+  height: 97%;
   padding: 10px;
   background-color: #d9d2b6ed; 
   /*background-image: url('foto/3028.jpg'); /* Path to your image */
