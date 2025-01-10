@@ -137,9 +137,11 @@ body.loaded {
 }
 
 .console-input {
-  height: 96.6%;
-  border-radius: 0; 
-}
+  padding: 8px;
+  font-size: 12px;  
+  height: auto;
+  border-radius: 0;
+} 
   
 .console-output {
   height: auto;
@@ -256,11 +258,14 @@ footer {
     font-size: 16px;
     box-sizing: border-box;
   }
+  
   .console-input {
-  height: 96.6%;
-  border-radius: 0;  
-  }
-    
+    padding: 8px;
+    font-size: 12px;
+    height: auto;
+    border-radius: 0;
+  } 
+  
   .console-output {
     height: auto;
   }
