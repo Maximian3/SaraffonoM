@@ -54,7 +54,7 @@ body.loaded {
 
 .console-input {
   width: 96.6%;
-  padding: 13px;
+  padding: 12px;
   background-color: #000000;
   color: #00ff00;
   border: none;
@@ -280,6 +280,8 @@ footer {
   }
 
   .console-input {
+    padding: 8px;
+    font-size: 12px;
     height: auto;
     border-radius: 0;
   }
