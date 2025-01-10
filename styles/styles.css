@@ -264,7 +264,7 @@ footer {
   .console-input {
     padding: 8px;
     font-size: 12px;
-    height: 100%;
+    height: auto;
     border-radius: 0;
   } 
   
@@ -289,7 +289,7 @@ footer {
   .console-input {
     padding: 8px;
     font-size: 12px;
-    height: 100%;
+    height: auto;
     border-radius: 0;
   }
   
