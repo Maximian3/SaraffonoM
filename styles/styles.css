@@ -259,6 +259,7 @@ footer {
   }
   .console-input {
   width: auto;
+  border-radius: 0;  
   }
     
   .console-output {
@@ -281,8 +282,7 @@ footer {
 
   .console-input {
     height: auto;
-    padding: 8px;
-    font-size: 12px;
+    border-radius: 0;
   }
   
   .console-output {
