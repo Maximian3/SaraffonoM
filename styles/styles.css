@@ -57,7 +57,7 @@ body.loaded {
   padding: 12px;
   background-color: #000000;
   color: #00ff00;
-  border: none;
+  border: 1px solid #00ff00;
   font-family: "Courier New", Courier, monospace;
   caret-color: #00ff00;
   outline: none;
