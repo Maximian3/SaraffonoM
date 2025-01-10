@@ -58,6 +58,7 @@ body.loaded {
   background-color: #000000;
   color: #00ff00;
   border: 1px solid #00ff00;
+  box-sizing: border-box;
   font-family: "Courier New", Courier, monospace;
   caret-color: #00ff00;
   outline: none;
