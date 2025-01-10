@@ -54,7 +54,7 @@ body.loaded {
 
 .console-input {
   width: 96.6%;
-  padding: 12px;
+  padding: 13px;
   background-color: #000000;
   color: #00ff00;
   border: none;
@@ -247,7 +247,10 @@ footer {
     font-size: 16px;
     box-sizing: border-box;
   }
-
+  .console-input {
+  width: auto;
+  }
+    
   .console-output {
     height: auto;
   }
@@ -267,8 +270,13 @@ footer {
   }
 
   .console-input {
+    height: auto;
     padding: 8px;
     font-size: 12px;
+  }
+  
+  .console-output {
+    height: auto;
   }
 
   .interactive-content {
