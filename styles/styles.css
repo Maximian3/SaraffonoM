@@ -14,6 +14,12 @@ body {
   background-size: cover; /* This will cause the image to cover the entire screen */
   background-position: center; /* center the image */
   background-repeat: no-repeat; /* So that the image is not repeated */
+  opacity: 0; /* hide body site */
+  transition: opacity 2s ease-in-out; 
+}
+
+body.loaded {
+  opacity: 1; /* body on */
 }
 
 /* Container for two parts of the page */
