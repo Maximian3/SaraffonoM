@@ -136,6 +136,16 @@ body.loaded {
   }
 }
 
+.console-input {
+  height: auto;
+  padding: 8px;
+  font-size: 12px;
+}
+  
+.console-output {
+  height: auto;
+}
+
 .command-link:hover {
   color: #ff4500; 
   font-size: 18px; 
