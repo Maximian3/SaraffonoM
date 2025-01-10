@@ -49,7 +49,14 @@
           <!-- Connecting Font Awesome -->
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-
+            <script>
+              window.addEventListener("load", function () {
+                  setTimeout(() => {
+                      document.body.classList.add("loaded");
+                  }, 5000); //  5 s
+              });
+            </script>
+      
             <script>
               document.addEventListener("DOMContentLoaded", function () {
                 const menuToggleButton = document.getElementById("menu-toggle");
