@@ -53,12 +53,13 @@ body.loaded {
 }
 
 .console-input {
-  width: 98%;
+  width: 97%;
   padding: 12px;
   background-color: #000000;
   color: #00ff00;
   border: 1px solid #00ff00;
   box-sizing: border-box;
+  border-top: none;
   font-family: "Courier New", Courier, monospace;
   caret-color: #00ff00;
   outline: none;
