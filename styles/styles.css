@@ -274,7 +274,7 @@ footer {
   }
 
   iframe {
-    width: 100%;
+    width: 50vh;
     height: 85vh; /* PDF  */
     border: none;
   }
@@ -311,7 +311,7 @@ footer {
   }
 
   iframe {
-    width: 100%;
+    width: 50vh;
     height: 75vh;
   }
 
