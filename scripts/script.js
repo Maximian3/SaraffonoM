@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function() {
       case "news":
         interactiveContent.innerHTML = `
         <div style="text-align: center; margin-top: 5px; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;">
-          <embed src="/pdf/Projects.pdf" type="application/pdf" width="100%" style="min-height: 90vh; max-height: 100vh;">
+          <iframe src="/pdf/news/Oxford_2024.pdf" width="100%" height="100%" style="border: none;"></iframe>
         </div>`;
         break;
       case "blog":
