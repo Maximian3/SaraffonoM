@@ -259,6 +259,7 @@ footer {
     padding: 0;
     font-size: 16px;
     box-sizing: border-box;
+    overflow: auto; 
   }
   
   .console-input {
