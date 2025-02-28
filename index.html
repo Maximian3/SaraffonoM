@@ -7,66 +7,91 @@
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+  <!-- Menu button and menu -->
+  <div class="menu-container">
+    <button id="menu-toggle" class="menu-button">
+      <span class="menu-icon">&#9776;</span> <!-- icon -->
+    </button>
+    <div id="menu" class="menu hidden">
+      <ul>
+        <li><a href="#" data-command="switch"><i class="fa fa-home"></i> Home</a></li> 
+        <li><a href="#" data-command="about"><i class="fa fa-user"></i> About</a></li> 
+        <li><a href="#" data-command="projects"><i class="fa fa-cogs"></i> Projects</a></li> 
+        <li><a href="#" data-command="contact"><i class="fa fa-envelope"></i> Contact</a></li> <!-- Icon for Contact - class="fa fa-envelope">-->
+        <li><a href="#" data-command="empty"><i class="fa-solid fa-file"></i> Button</a></li> 
+        
+      </ul>
+    </div>
+  </div>
   <div class="container">
     <div class="console">
       <div class="console-output" id="output">
-        <!-- The output of the commands will go here -->
+        <!-- The output of the commands will be here -->
       </div>
       <input type="text" class="console-input" id="input" placeholder="Type a command...">
           <!-- Section with available commands -->
           <div id="help" class="help-section">
             <h3>Available Commands:</h3>
             <ul>
-              <li><a href="#" class="command-link" data-command="news">NEWS</a> -  see my curent News</a></li>
-              <li><a href="#" class="command-link" data-command="about">ABOUT</a> - learn about me</a></li>
-              <li><a href="#" class="command-link" data-command="profile">PROFILE</a> -  view my profile</a></li>
-              <li><a href="#" class="command-link" data-command="projects">PROJECTS</a> - view my projects</a></li>
-              <li><a href="#" class="command-link" data-command="blog">BLOG</a> -  see my blog</a></li>
-              <li><a href="#" class="command-link" data-command="contact">CONTACT</a> - contact information</a></li>
-              <li><a href="#" class="command-link" data-command="help">HELP</a> - is available commands</a></li>
-              <li><a href="#" class="command-link" data-command="curriculumvitae">References</a> -to legislation</a></li>
+              <li><a href="#" class="command-link" data-command="news">NEWS</a> -  see curent News</li>
+              <li><a href="#" class="command-link" data-command="about">ABOUT</a> - learn about me</li>
+              <li><a href="#" class="command-link" data-command="profile">PROFILE</a> -  view my profile</li>
+              <li><a href="#" class="command-link" data-command="projects">PROJECTS</a> - view my projects</li>
+              <li><a href="#" class="command-link" data-command="blog">BLOG</a> -  see my blog</li>
+              <li><a href="#" class="command-link" data-command="contact">CONTACT</a> - contact information</li>
+              <li><a href="#" class="command-link" data-command="help">HELP</a> - see available commands</li>
+              <li><a href="#" class="command-link" data-command="lnorms">Link</a> - legal Norms</li>
+              
+              <li><a href="#" class="command-link" data-command="Empty">empty link </a> -in development</li>
               <li><a href="#" class="command-link" data-command="enable">Enable</a> - interactive content</li>
               <li><a href="#" class="command-link" data-command="disable">Disable</a> - interactive content</li>
-              <li><a href="#" class="command-link" data-command="clear">CLEAR</a> -  clear the terminal</a></li>
+              <li><a href="#" class="command-link" data-command="clear">CLEAR</a> -  clear the terminal</li>
             </ul>
           </div>
 
-          <!-- Menu button and menu -->
-          <div class="menu-container">
-            <button id="menu-toggle" class="menu-button">
-              <span class="menu-icon">&#9776;</span> 
-            </button>
-            <div id="menu" class="menu hidden">
-              <ul>
-                <li><a href="#" data-command="switch"><i class="fa fa-home"></i> Home</a></li> 
-                <li><a href="#" data-command="about"><i class="fa fa-user"></i> About</a></li> 
-                <li><a href="#" data-command="projects"><i class="fa fa-cogs"></i> Projects</a></li> 
-                <li><a href="#" data-command="contact"><i class="fa fa-envelope"></i> Contact</a></li> 
-              </ul>
-            </div>
-          </div>
+          
 
-          <!-- Connecting Font Awesome -->
+          <!-- Connect Font Awesome -->
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-            <script>
-              window.addEventListener("load", function () {
-                  setTimeout(() => {
-                      document.body.classList.add("loaded");
-                  }, 5000); //  5 s
-              });
-            </script>
-      
+
             <script>
               document.addEventListener("DOMContentLoaded", function () {
                 const menuToggleButton = document.getElementById("menu-toggle");
                 const menu = document.getElementById("menu");
 
-                // Button Menu
+                // Handler for menu button
                 menuToggleButton.addEventListener("click", () => {
                   menu.classList.toggle("hidden"); // Show/hide menu
                 });
               });
+            </script>
+
+
+            <script>
+              // Function to handle the YouTube link
+              function convertYouTubeLink() {
+                  // Open a prompt dialog to input the link
+                  const userInput = prompt("Enter a YouTube video link (e.g., https://www.youtube.com/watch?v=AJRGxd9cVaY):");
+
+                  // Check if the user entered a link
+                  if (userInput) {
+                      // Regular expression to extract the video ID
+                      const videoIdMatch = userInput.match(/v=([^&]+)/);
+
+                      if (videoIdMatch && videoIdMatch[1]) {
+                          const videoId = videoIdMatch[1]; // Extract the ID
+                          const embedUrl = `https://www.youtube.com/embed/${videoId}`; // Create the embed URL
+
+                          // Open a new window with the embed URL
+                          window.open(embedUrl, "_blank");
+                      } else {
+                          alert("Failed to extract the video ID. Please check the link.");
+                      }
+                  } else {
+                      alert("No link was entered.");
+                  }
+              }
             </script>
 
             <audio id="background-music" autoplay loop>
@@ -77,9 +102,9 @@
 
     <div class="interactive-content">
       <h2>Welcome to the Interactive Section</h2>
-      
+      <!-- content for the right side of the site, such as videos, photos, texts -->
       <div class="video-section">
-        <iframe width="auto" height="auto" src="https://www.youtube.com/embed/vc2VLlk-MVg"
+        <iframe width="auto" height="auto" src="https://www.youtube.com/embed/w-7xcpsuvpk"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
 
