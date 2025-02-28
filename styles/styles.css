@@ -39,6 +39,7 @@ body {
 .console-output {
   flex: 0 1 70%; /* Fills 50% of the height */
   max-height: 55vh; /* Maximum height */
+  min-height: 30vh; /* Minimum height */
   background-color: #000;
   border: 1px solid #00ff00;
   border-bottom: none;
